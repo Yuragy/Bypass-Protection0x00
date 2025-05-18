@@ -1,0 +1,97 @@
+[Defines]
+  INF_VERSION                    = 0x00010019
+  BASE_NAME                      = EfiGuardDxe
+  FILE_GUID                      = 503682AC-F01E-4D10-AAE3-BE5A90A563E7
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
+  VERSION_STRING                 = 1.0
+
+  ENTRY_POINT                    = EfiGuardInitialize
+  UNLOAD_IMAGE                   = EfiGuardUnload
+
+[Sources]
+  EfiGuardDxe.c
+  PatchBootmgr.c
+  PatchNtoskrnl.c
+  PatchWinload.c
+  pe.c
+  util.c
+  Zydis/src/Decoder.c
+  Zydis/src/DecoderData.c
+  Zydis/src/MetaInfo.c
+  Zydis/src/Mnemonic.c
+  Zydis/src/Register.c
+  Zydis/src/Segment.c
+  Zydis/src/SharedData.c
+  Zydis/src/String.c
+  Zydis/src/Utils.c
+  Zydis/src/Zydis.c
+
+[Sources.X64]
+  X64/Cet.nasm
+
+[Packages]
+  MdePkg/MdePkg.dec
+  EfiGuardPkg/EfiGuardPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  DebugLib
+  UefiLib
+  BaseMemoryLib
+  DevicePathLib
+  SynchronizationLib
+  MemoryAllocationLib
+  PrintLib
+
+[Protocols]
+  gEfiGuardDriverProtocolGuid                      ## PRODUCES
+  gEfiDriverSupportedEfiVersionProtocolGuid        ## PRODUCES
+  gEfiDevicePathToTextProtocolGuid                 ## CONSUMES
+  gEfiDevicePathUtilitiesProtocolGuid              ## CONSUMES
+  gEfiLoadedImageProtocolGuid                      ## CONSUMES
+  gEfiShellProtocolGuid                            ## SOMETIMES_CONSUMES
+  gEfiSimpleTextInProtocolGuid                     ## SOMETIMES_CONSUMES
+  gEfiSimpleTextInputExProtocolGuid                ## SOMETIMES_CONSUMES
+
+[Guids]
+  gEfiGlobalVariableGuid                           ## SOMETIMES_PRODUCES
+  gEfiEventExitBootServicesGuid                    ## CONSUMES
+  gEfiEventVirtualAddressChangeGuid                ## CONSUMES
+  gEfiAcpi20TableGuid                              ## SOMETIMES_CONSUMES
+
+[Depex]
+  gEfiSimpleTextOutProtocolGuid AND
+  gEfiLoadedImageProtocolGuid AND
+  gEfiVariableArchProtocolGuid AND
+  gEfiVariableWriteArchProtocolGuid AND
+  gEfiResetArchProtocolGuid AND
+  gEfiBdsArchProtocolGuid AND
+  gEfiRuntimeArchProtocolGuid
+
+[BuildOptions.Common]
+  # Put Zydis on a diet
+  *_*_*_CC_FLAGS = -D ZYAN_NO_LIBC -D ZYCORE_STATIC_BUILD -D ZYDIS_STATIC_BUILD -D ZYDIS_DISABLE_ENCODER -D ZYDIS_DISABLE_FORMATTER -D ZYDIS_DISABLE_AVX512 -D ZYDIS_DISABLE_KNC
+
+  # Zydis triggers this with MSVC and ICC on /W4.
+  # warning C4201: nonstandard extension used: nameless struct/union
+  MSFT:*_*_*_CC_FLAGS = /wd4201
+  # ICC additionally generates about a million of these for Zydis on /W4, and then quits because of /WX.
+  # warning #188: enumerated type mixed with another type
+  # message #2415: variable "x" of static storage duration was declared but never referenced
+  INTEL:*_*_*_CC_FLAGS = -wd4201,188,2415
+
+  # This makes the decoder about twice as fast... sorry about the extra 5KB. Oh and usable PDBs please
+  MSFT:RELEASE_*_*_CC_FLAGS = /O2 /Ot /Zi
+  INTEL:RELEASE_*_*_CC_FLAGS = /O3 /Ot /Zi /Qopt-report-embed-
+
+  *:DEBUG_*_*_PP_FLAGS = -D EFI_DEBUG
+  *:DEBUG_*_*_CC_FLAGS = -D EFI_DEBUG
+
+  *:RELEASE_*_*_CC_FLAGS = -D MDEPKG_NDEBUG
+
+[BuildOptions.common.DXE_RUNTIME_DRIVER]
+  MSFT:*_*_*_DLINK_FLAGS = /SUBSYSTEM:EFI_RUNTIME_DRIVER,1.0
+  INTEL:*_*_*_DLINK_FLAGS = /SUBSYSTEM:EFI_RUNTIME_DRIVER,1.0
