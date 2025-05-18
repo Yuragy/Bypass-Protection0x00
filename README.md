@@ -39,13 +39,13 @@
 9️⃣ **Shellcode-Injector**  
    Generic shellcode injection framework supporting reflective injection and process hollowing.  
 
-1️⃣0️⃣ **landrun**  
+1️⃣0️⃣ **Landrun**  
     Payload loader that leverages custom containerization techniques for stealth execution.  
 
-1️⃣1️⃣ **power-killEDR_AV**  
+1️⃣1️⃣ **Power-killEDR_AV**  
     Utility to terminate EDR/AV processes by exploiting high-privilege system calls.  
 
-1️⃣2️⃣ **zapper**  
+1️⃣2️⃣ **Zapper**  
     Cleanup tool for erasing logs, disabling tamper protections, and removing forensic traces.  
 
 ## 🚫 Disclaimer
