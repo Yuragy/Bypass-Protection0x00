@@ -12,10 +12,10 @@
 - Defense Process Termination     
 
 ## Repository Structure
-1. **Auto-Color**  
+1️⃣ **Auto-Color**  
    A polymorphic obfuscation toolkit that uses color-based encoding to evade static detection.  
 
-2. **BypassAV**  
+2️⃣ **BypassAV**  
    Automated framework for disabling or bypassing Windows antivirus engines via API hooking and patching.  
 
 3. **CallstackSpoofingPOC**  
