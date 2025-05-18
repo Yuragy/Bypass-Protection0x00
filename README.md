@@ -1,6 +1,6 @@
 # EDR & AV Bypass Arsenal
 
-**A comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses.**
+**Comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses**
 
 ## Functional Specifics:
 - Obfuscation & Polymorphism      
