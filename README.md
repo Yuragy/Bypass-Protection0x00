@@ -18,34 +18,34 @@
 2️⃣ **BypassAV**  
    Automated framework for disabling or bypassing Windows antivirus engines via API hooking and patching.  
 
-3. **CallstackSpoofingPOC**  
+3️⃣ **CallstackSpoofingPOC**  
    Proof-of-concept demonstrating call-stack spoofing techniques to defeat Control-Flow Integrity (CFI).  
 
-4. **DSC**  
+4️⃣ **DSC**  
    Driver Signature Check bypass module enabling the loading of unsigned kernel drivers on Windows.  
 
-5. **EfiGuard**  
+5️⃣ **EfiGuard**  
    Exploit for bypassing UEFI firmware protections and executing unauthorized code during boot.  
 
-6. **ElfDoor-gcc**  
+6️⃣ **ElfDoor-gcc**  
    Linux kernel module loader that injects unsigned ELF objects into kernel space to bypass module signing.  
 
-7. **Hanshell**  
+7️⃣ **Hanshell**  
    Shellcode packer/loader with dynamic encryption and anti-analysis features.  
 
-8. **PPL-0day**  
+8️⃣ **PPL-0day**  
    Proof-of-concept exploit targeting Windows Protected Process Light (PPL) to bypass PPL enforcement.  
 
-9. **Shellcode-Injector**  
+9️⃣ **Shellcode-Injector**  
    Generic shellcode injection framework supporting reflective injection and process hollowing.  
 
-10. **landrun**  
+1️⃣0️⃣ **landrun**  
     Payload loader that leverages custom containerization techniques for stealth execution.  
 
-11. **power-killEDR_AV**  
+1️⃣1️⃣ **power-killEDR_AV**  
     Utility to terminate EDR/AV processes by exploiting high-privilege system calls.  
 
-12. **zapper**  
+1️⃣2️⃣ **zapper**  
     Cleanup tool for erasing logs, disabling tamper protections, and removing forensic traces.  
 
 ## 🚫 Disclaimer
