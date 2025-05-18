@@ -47,6 +47,33 @@
 
 1️⃣2️⃣ **Zapper**  
     Cleanup tool for erasing logs, disabling tamper protections, and removing forensic traces.  
+    
+1️⃣3️⃣ **APC-Injection**  
+    Leverages Windows Asynchronous Procedure Calls to queue and execute arbitrary code in remote processes for stealthy injection.
+
+1️⃣4️⃣ **Bypass-EDR**  
+    Collection of techniques and scripts to disable or evade common Endpoint Detection & Response platforms at runtime.
+
+1️⃣5️⃣ **Bypass-Smartscreen**  
+    Implements methods to circumvent Windows SmartScreen application reputation checks and “unknown publisher” warnings.
+
+1️⃣6️⃣ **Google Script Proxy**  
+    Command-and-control proxy using Google Apps Script to relay C2 traffic over Google’s infrastructure.
+
+1️⃣7️⃣ **PE-infector**  
+    Injects custom shellcode or payloads into Portable Executable files, modifying headers and sections for stealthy distribution.
+
+1️⃣8️⃣ **PandaLoader**  
+    Payload loader that uses API hooking and reflective techniques to hide code in protected or monitored processes.
+
+1️⃣9️⃣ **Shellcode-Loader**  
+    Simple framework for allocating memory, writing shellcode, and invoking it via various injection primitives (e.g., CreateRemoteThread).
+
+2️⃣0️⃣ **Shellcode-Mutator**  
+    Applies polymorphic transformations to raw shellcode—encryption, encoding, padding—to evade signature-based detection.
+
+2️⃣1️⃣ **el84_injector**  
+    ELF injector for Linux: attaches to a running process and maps arbitrary ELF segments into its memory space for execution.
 
 ## 🚫 Disclaimer
 
