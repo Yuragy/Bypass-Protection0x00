@@ -2,14 +2,20 @@
 
 **Comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses**
 
-## Functional Specifics:
-- Obfuscation & Polymorphism      
-- AV/EDR Bypass                   
-- Control-Flow Spoofing           
-- river Signature Bypass         
-- EFI/Boot Protection Bypass      
-- Shellcode Injection & Loaders   
-- Defense Process Termination     
+## Functional Specifics
+
+- Obfuscation & Polymorphism  
+- AV/EDR Bypass  
+- Windows SmartScreen Bypass  
+- C2 Proxy Relaying  
+- Control-Flow Spoofing  
+- Driver Signature Bypass  
+- EFI/Boot Protection Bypass  
+- PE Infector & Binary Patching  
+- Shellcode Injection & Loaders  
+- APC-Based Code Injection  
+- Shellcode Mutation  
+- Defense Process Termination    
 
 ## Repository Structure
 1️⃣ **Auto-Color**  
