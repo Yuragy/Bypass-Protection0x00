@@ -2,8 +2,7 @@
 
 **A comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses.**
 
-## Repository Structure
-
+## Functional Specifics:
 - Obfuscation & Polymorphism      
 - AV/EDR Bypass                   
 - Control-Flow Spoofing           
@@ -11,6 +10,8 @@
 - EFI/Boot Protection Bypass      
 - Shellcode Injection & Loaders   
 - Defense Process Termination     
+
+## Repository Structure
 
 ## 🚫 Disclaimer
 
