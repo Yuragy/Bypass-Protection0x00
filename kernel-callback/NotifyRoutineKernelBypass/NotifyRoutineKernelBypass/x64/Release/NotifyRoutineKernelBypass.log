@@ -1,0 +1,13 @@
+﻿  notifyRoutine.cpp
+C:\Github-Vixx\kernel-callback-removal\NotifyRoutineKernelBypass\NotifyRoutineKernelBypass\notifyRoutine.cpp(78,12): warning C4244: 'initializing': conversion from 'DWORD64' to 'int', possible loss of data
+C:\Github-Vixx\kernel-callback-removal\NotifyRoutineKernelBypass\NotifyRoutineKernelBypass\notifyRoutine.cpp(191,14): warning C4101: 'pEntry': unreferenced local variable
+C:\Github-Vixx\kernel-callback-removal\NotifyRoutineKernelBypass\NotifyRoutineKernelBypass\notifyRoutine.cpp(263,14): warning C4101: 'pEntry': unreferenced local variable
+  MemHandler.cpp
+  memory.cpp
+C:\Github-Vixx\kernel-callback-removal\NotifyRoutineKernelBypass\NotifyRoutineKernelBypass\memory.cpp(78,29): warning C4267: 'initializing': conversion from 'size_t' to 'DWORD', possible loss of data
+  NotifyRoutineKernelBypass.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 224 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  NotifyRoutineKernelBypass.vcxproj -> C:\Github-Vixx\kernel-callback-removal\NotifyRoutineKernelBypass\x64\Release\NotifyRoutineKernelBypass.exe
