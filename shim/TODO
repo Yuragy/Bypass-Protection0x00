@@ -1,0 +1,47 @@
+- Versioned protocol:
+  - Make shim and the bootloaders using it express how enlightened they
+    are to one another, so we can stop earlier without tricks
+  - Make EFI_LOADED_IMAGE_2 protocol and a LOAD_IMAGE protocol with
+    LoadImage/CheckImage/StartImage.
+- Implement EFI_CERT_X509_SHA{256,384,512} revocation checks
+  - It doesn't necessarily have to include timestamp checking support
+- Make the openssl code supply the Pkcs7Verify() API, and use the system
+  one (instead) if it is available.
+  - And make building it optional
+- Get meb30's multiple-certs patch merged
+- Hashing of option roms:
+  - hash option roms and add them to MokListRT
+  - probably belongs in MokManager
+  - And some PCR?
+- Ability to specify second stage as a device path
+  - including vendor path that means "parent of this image's path"
+  - including vendor path that means "this image"
+  - including path that's like Fv() to embed images.
+- Make all build options be able to be set in 'git config --local shim.OPTION'
+  - Make the build dump those to stdout as well
+- make debuginfo paths configurable
+- make arch dependent names configurable
+- Make it easier to avoid CryptPem
+- Post process full path names out of __FILE__ / __BASE_FILE__ entries in
+  the string table :/
+- Reproducible builds:
+  - Make build.log an artifact of building.
+  - KEK for Mok.  (koike expressed an interest in working on this.)
+  - Reorder builds to take hashes of mm, fb and insert those in shim
+    instead of ephemeral certs
+  - Make an easy strip+implant tool for our embedded cert lists
+- Detection of fallback.efi boot loops
+  - Some tablet devices seem to always boot the fallback path, ignoring
+    boot variables, so we need to detect that.
+  - fallback creates 2 variables, one volatile, one nonvolatile
+  - if shim sees the nonvolatile variable but not the volatile one, it has
+    been booted correctly after fallback has run, so it should remove the
+    nonvolatile variable.
+  - if fallback sees the nonvolatile variable, it is in a fallback boot
+    loop, and should launch the next stage instead of rebooting.
+  - This means the TPM extend chain on machines with broken BDS always
+    looks like: shim -> fallback -> shim -> grub2 -> kernel, *except* on
+    boots from removable media (i.e. install media without fallback),
+    where it looks like shim -> grub2 -> kernel /once/.
+
+# vim:filetype=mail:tw=74

@@ -1,0 +1,91 @@
+It's pretty straightforward:
+
+cp $MY_DER_ENCODED_CERT pub.cer
+make VENDOR_CERT_FILE=pub.cer
+make EFIDIR=my_esp_dir_name install
+
+There are a couple of ways to customize the build:
+
+Install targets:
+- install
+  installs shim as if to a hard drive, including installing MokManager and
+  fallback appropriately.
+- install-as-data
+  installs shim files to /usr/share/shim/$(EFI_ARCH)-$(VERSION)/
+
+Variables you should set to customize the build:
+- EFIDIR
+  This is the name of the ESP directory.  The install targets won't work
+  without it.
+- DESTDIR
+  This will be prepended to any install targets, so you don't have to
+  install to a live root directory.
+- DEFAULT_LOADER
+  defaults to \\\\grub$(EFI_ARCH).efi , but you could set it to whatever.
+  Be careful with the leading backslashes, they can be hard to get
+  correct.
+
+Variables you could set to customize the build:
+- ENABLE_SHIM_CERT
+  if this variable is defined on the make command line, shim will
+  generate keys during the build and sign MokManager and fallback with
+  them, and the signed version will be what gets installed with the
+  install targets
+- ENABLE_SHIM_DEVEL
+  If this is set, we look for SHIM_DEVEL_DEBUG instead of SHIM_DEBUG in
+  our debugger delay hook, thus meaning you can have it pause for a
+  debugger only on the development branch and not the OS you need to boot
+  to scp in a new development build.  Likewise, we look for
+  SHIM_DEVEL_VERBOSE rather than SHIM_VERBOSE.
+- DISABLE_EBS_PROTECTION
+  On systems where a second stage bootloader is not used, and the Linux
+  Kernel is embedded in the same EFI image as shim and booted directly
+  from shim, shim's ExitBootServices() hook can cause problems as the
+  kernel never calls the shim's verification protocol.  In this case
+  calling the shim verification protocol is unnecessary and redundant as
+  shim has already verified the kernel when shim loaded the kernel as the
+  second stage loader.  In such a case, and only in this case, you should
+  use DISABLE_EBS_PROTECTION=y to build.
+- DISABLE_REMOVABLE_LOAD_OPTIONS
+  Do not parse load options when invoked as boot*.efi. This prevents boot
+  failures because of unexpected data in boot entries automatically generated
+  by firmware. It breaks loading non-default second-stage loaders when invoked
+  via that path, and requires using a binary named shim*.efi (or really anything
+  else).
+- REQUIRE_TPM
+  if tpm logging or extends return an error code, treat that as a fatal error.
+- ARCH
+  This allows you to do a build for a different arch that we support.  For
+  instance, on x86_64 you could do "setarch linux32 make ARCH=ia32" to get
+  the ia32 build instead.  (DEFAULT_LOADER will be automatically adjusted
+  in that case.)
+- TOPDIR
+  You can use this along with make -f to build in a subdir.  For instance,
+  on an x86_64 machine you could do:
+
+    mkdir build-ia32 build-x64 inst
+    cd build-ia32
+    setarch linux32 make TOPDIR=.. ARCH=ia32 -f ../Makefile
+    setarch linux32 make TOPDIR=.. ARCH=ia32 \
+			 DESTDIR=../inst EFIDIR=debian \
+			 -f ../Makefile install
+    cd ../build-x64
+    make TOPDIR=.. -f ../Makefile
+    make TOPDIR=.. DESTDIR=../inst EFIDIR=debian \
+			-f ../Makefile install
+
+  That would get you x86_64 and ia32 builds in the "inst" subdir.
+- OSLABEL
+  This is the label that will be put in BOOT$(EFI_ARCH).CSV for your OS.
+  By default this is the same value as EFIDIR .
+- POST_PROCESS_PE_FLAGS
+  This allows you to add flags to the invocation of "post-process-pe", for
+  example to disable the NX compatibility flag.
+
+Vendor SBAT data:
+It will sometimes be requested by reviewers that a build includes extra
+.sbat data.  The mechanism to do so is to add a CSV file in data/ with the
+name sbat.FOO.csv, where foo is your EFI subdirectory name.  The build
+system will automatically include any such files.
+
+# vim:filetype=mail:tw=74
