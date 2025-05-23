@@ -1,0 +1,398 @@
+
+
+%----------
+% DOCUMENT CONFIGURATION
+%----------
+
+\documentclass[12pt]{report} %font 12pt
+
+% MARGINS
+\usepackage[
+a4paper,
+vmargin=2.5cm,
+hmargin=3cm
+]{geometry}
+
+\renewcommand{\baselinestretch}{1.15}
+\parskip=6pt
+
+\usepackage{pdflscape}
+
+% COLORS for cover and code
+\usepackage[table]{xcolor}
+\definecolor{azulUC3M}{RGB}{0,0,102}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+% Soporte para GENERAR PDF/A --es importante de cara a su inclusión en e-Archivo porque es el formato óptimo de preservación y a la generación de metadatos, tal y como se describe en http://uc3m.libguides.com/ld.php?content_id=31389625. En la carpeta incluímos el archivo plantilla_tfg_2017.xmpdata en el que puedes incluir los metadatos que se incorporarán al archivo PDF cuando lo compiles. Ese archivo debe llamarse igual que tu archivo .tex. Puedes ver un ejemplo en esta misma carpeta.
+\usepackage[a-1b]{pdfx}
+
+% LINKS
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue}
+
+% MATH
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\usepackage{txfonts} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[english]{babel} 
+\usepackage[babel, english=american]{csquotes}
+\AtBeginEnvironment{quote}{\small}
+
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+% FOOTER
+\fancypagestyle{fancy}{
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead{}         
+\fancyhead[LO]{CHAPTER \thechapter}     
+\fancyhead[RO]{\rightmark}  
+\rfoot{\thepage}
+}
+
+\fancypagestyle{plain}{
+	%\fancyhf{}
+	\pagestyle{plainnofancy}
+	%\renewcommand{\headrulewidth}{0pt}
+}
+
+\fancypagestyle{plainnofancy}%
+{%
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{\thepage}
+}
+
+%LANDSCAPE PAGES
+\fancypagestyle{lscape}{% 
+\fancyhf{} % clear all header and footer fields 
+\fancyfoot{%
+    \tikz[remember picture,overlay]
+      \node[outer sep=1cm,above,rotate=90] at (current page.45) {\thepage};}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt}
+}
+
+
+
+
+%%
+\pagestyle{plainnofancy}
+
+
+
+% TITLES
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[block]
+{\large\bfseries\filcenter}
+{\thechapter.}
+{5pt}
+{\MakeUppercase}
+{}
+\titlespacing{\chapter}{0pt}{0pt}{*3}
+\titlecontents{chapter}
+[0pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace\uppercase}
+{\contentsmargin{0pt}\uppercase}                        
+{\titlerule*[.7pc]{.}\contentspage}                 
+
+\titleformat{\section}
+{\bfseries}
+{\thesection.}
+{5pt}
+{}
+\titlecontents{section}
+[5pt]                                               
+{}
+{\contentsmargin{0pt}\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}
+{\titlerule*[.7pc]{.}\contentspage}
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{\thesubsection.}
+{5pt}
+{}
+\titlecontents{subsection}
+[10pt]                                               
+{}
+{\contentsmargin{0pt}                          
+	\thecontentslabel.\enspace}
+{\contentsmargin{0pt}}                        
+{\titlerule*[.7pc]{.}\contentspage}  
+
+
+% TABLE DESIGN
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{floatrow} 
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\DeclareCaptionFormat{upper}{#1#2\uppercase{#3}\par}
+
+\captionsetup[table]{
+	%format=upper,  Set by the template, but it looks really weird, I got this off
+	justification=centering,
+	labelsep=period,
+	width=.75\linewidth,
+	labelfont=small,
+	font=small,
+}
+
+
+% FIGURES DESIGN
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\captionsetup[figure]{
+	format=hang,
+	name=Fig.,
+	singlelinecheck=off,
+	labelsep=period,
+	labelfont=small,
+	font=small,
+	%I added the following, I think it was missed on the template
+	justification=centering		
+}
+
+
+% FOOT NOTES
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+% CODE LISTINGS
+\usepackage{listings}
+
+\lstdefinestyle{estilo}{ frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+	%
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\bfseries,
+	stringstyle=\ttfamily,
+	showstringspaces = false,
+	commentstyle=\color{gray45},     
+	%
+	numbers=left,
+	numbersep=15pt,
+	numberstyle=\tiny,
+	numberfirstline = false,
+	breaklines=true,
+	xleftmargin=\parindent
+}
+
+
+\captionsetup[lstlisting]{font=small, labelsep=period}
+
+\lstset{style=estilo}
+\renewcommand{\lstlistingname}{\uppercase{Code}}
+
+% IEEE BIBLIOGRAPHY
+\usepackage[backend=biber, style=ieee, isbn=false,sortcites, maxbibnames=5, minbibnames=1 ]{biblatex}
+
+\addbibresource{bibliography/bibliography.bib}
+
+
+%-------------
+%	DOCUMENT
+%-------------
+
+\begin{document}
+\pagenumbering{roman}
+	
+%----------
+%	COVER
+%----------	
+\begin{titlepage}
+	\begin{sffamily}
+	\color{azulUC3M}
+	\begin{center}
+		\begin{figure}[H] %university logotype
+			\makebox[\textwidth][c]{\includegraphics[width=16cm]{Portada_Logo.png}}
+		\end{figure}
+		\vspace{2.5cm}
+		\begin{Large}
+			University Degree in Computer Science and Engineering\\			
+			Academic Year 2021-2022\\
+			\vspace{2cm}		
+			\textsl{Bachelor Thesis}
+			\bigskip
+			
+		\end{Large}
+		 	{\Huge ``An analysis of offensive capabilities of eBPF and implementation of a rootkit''}\\
+		 	\vspace*{0.5cm}
+	 		\rule{10.5cm}{0.1mm}\\
+			\vspace*{0.9cm}
+			{\LARGE Marcos Sánchez Bajo}\\ 
+			\vspace*{1cm}
+		\begin{Large}
+			Juan Manuel Estévez Tapiador\\
+			Leganés, 2022\\
+		\end{Large}
+	\end{center}
+	\vfill
+	\color{black}
+	% Creative Commons license
+	\includegraphics[width=4.2cm]{images/creativecommons.png}\\  
+	This work is licensed under Creative Commons \textbf{Attribution – Non Commercial – Non Derivatives}
+	\end{sffamily}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+%----------
+%	SUMMARY & KEYWORDS
+%----------	
+\renewcommand\abstractname{\large\uppercase{Summary}}
+\begin{abstract}
+\thispagestyle{plainnofancy}
+\setcounter{page}{3}
+	
+
+eBPF is a technology introduced in the 3.18 version of the Linux kernel that allows running code in the kernel without the need of loading a kernel module. Although originally intended for filtering packets, eBPF programs can be used for network monitoring, accessing kernel-exclusive resources and tracing activities at the user and kernel space. This has positioned eBPF as a leading environment for the development of network, security and observability tools. During the last years, however, eBPF has been found to be at the heart of the latest innovation on the development of rootkits.
+
+This work identifies the offensive capabilities of eBPF that could be weaponized by a threat actor. Based on them, we have developed an 
+eBPF-based rootkit that uses these capabilities to showcase multiple malicious use cases. Our rootkit, named TripleCross, incorporates (1) a
+library injection module to execute malicious code by writing at processes virtual memory; (2) an execution hijacking module that modifies data passed to the kernel to execute malicious programs; (3) a local privilege escalation module that allows for running malicious programs with root privileges; (4) a backdoor with C2 capabilities that can monitor the network and execute commands sent from a remote rootkit client, incorporating multiple backdoor triggers so that these actions are transmitted with stealth in mind; (5) a rootkit client program that allows an attacker to establish 3 different types of shell-like connections for sending commands and actions that control the rootkit state
+remotely; (6) a persistence module that ensures the
+rootkit remains installed maintaining full privileges even after a reboot event; and (7) a stealth module that hides rootkit-related files and directories from the user.
+
+TripleCross demonstrates the existing danger when running eBPF programs, a
+technology also available by default in most distributions. It is intended for being used in pentesting and red teaming exercises.
+
+%Apparently I must not repeat those appearing in the title
+	\textbf{Keywords: Backdoor; Berkeley Packet Filter; Implant; Command and Control; Linux kernel; Malware; Computer security}
+	% TODO KEYWORDS
+	
+	\vfill
+\end{abstract}
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	
+	
+%----------
+%	DEDICATION
+%----------	
+\chapter*{Dedication}
+\thispagestyle{plainnofancy}
+\setcounter{page}{5}
+
+	
+These lines are dedicated to those who have stayed by my side not only during the development of this thesis, but also during these last four years. 
+	
+I would like to thank my mother, father and sister. Without you any of this would have been ever possible. Thank you for teaching me the value of hard work and continuing to do so every day. Your patience, love and support are undoubtedly invaluable.
+
+Thanks, too, to all with whom I have shared part of this long journey. Brandon, Carlos, Miguel and the rest, it would definitely have been different without you.
+
+Finally, my special appreciation goes to my thesis supervisor Dr. Estévez Tapiador. I could not have had a project I was more excited about. Thank you for trusting me with this opportunity, and thanks for your commitment these months.
+
+	
+	
+	\vfill
+	
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	
+
+%----------
+%	INDEXES
+%----------	
+
+%--
+%General indexes
+%-
+
+\tableofcontents
+\clearpage
+%\pagestyle{fancy}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+%--
+% List of figures
+%-
+\listoffigures
+
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+%--
+% List of tables
+%-
+\listoftables
+
+\newpage % página en blanco o de cortesía
+\thispagestyle{empty}
+\mbox{}
+
+%----------
+%	INTRODUCTION
+%----------	
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+% This prevents the underscores going out of the margins
+\renewcommand\_{\textunderscore\allowbreak}
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+\input{chapters/chapter6}
+\input{chapters/chapter7}
+\input{chapters/chapter8}
+
+
+
+
+
+
+
+
+%----------
+%	BIBLIOGRAPHY
+%----------	
+
+%\nocite{*} % Si quieres que aparezcan en la bibliografía todos los documentos que la componen (también los que no estén citados en el texto) descomenta está lína
+
+\clearpage
+\pagestyle{plainnofancy}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\sloppy
+\printbibliography
+
+
+\input{chapters/annex}
+
+
+
+
+
+\end{document}
