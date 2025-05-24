@@ -1,6 +1,7 @@
 # EDR & AV Bypass Arsenal
 
-**Comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses**
+**Comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses.**
+All the tools in this repository are a collection that continues to grow, the author's contacts are listed on the inside of each tool if possible. 
 
 ## Functional Specifics
 
