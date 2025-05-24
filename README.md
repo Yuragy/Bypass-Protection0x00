@@ -2,10 +2,15 @@
 	<i><u>EDR & AV Bypass Arsenal</i></u>
 </p>
 <p align="center">
-  <a href="bitcoin:3434">
-    <img src="https://github.com/Yuragy/Bypass-Protection0x00/blob/main/reso/GpnwKAzXgAAu8OC.jpeg" alt="Donate Bitcoin" width="200"/>
+  <a href="bitcoin:1YourBitcoinAddressHere">
+    <img 
+      src="https://raw.githubusercontent.com/Yuragy/Bypass-Protection0x00/main/donate-btc.png" 
+      alt="Donate BTC" 
+      width="200" 
+    />
   </a>
 </p>
+
 
 **Comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses.**
 All the tools in this repository are a collection that continues to grow, the author's contacts are listed on the inside of each tool if possible. 
