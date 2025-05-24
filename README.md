@@ -87,6 +87,76 @@ All the tools in this repository are a collection that continues to grow, the au
 2️⃣1️⃣ **el84_injector**  
     ELF injector for Linux: attaches to a running process and maps arbitrary ELF segments into its memory space for execution.
 
+2️⃣2️⃣ **AV\_Clean**
+    Set of scripts and utilities for removing antivirus traces: stops services, deletes files and registry keys, and rolls back changes.
+
+2️⃣3️⃣ **Byte**
+    ZIP-bomb generator that creates ultra-compressed archives which expand into huge file sets to exhaust disk space, memory, or CPU resources.
+
+2️⃣4️⃣ **Cryptolib**
+    Common library of cryptographic primitives: encryption, hashing, and obfuscation routines for use in other tools.
+
+2️⃣5️⃣ **Dump**
+    Utility for dumping process and kernel memory (including LSASS) with support for compression and encryption of the output files.
+
+2️⃣6️⃣ **DVUEFI**
+    Educational platform and PoC suite for analyzing UEFI firmware vulnerabilities, with Secure Boot bypass techniques and integrity-check evasion.
+
+2️⃣7️⃣ **GenEDRBypass**
+    EDR-bypass generator: dynamically produces shellcode via msfvenom, applies XOR obfuscation, and includes anti-debug and anti-sandbox features.
+
+2️⃣8️⃣ **Morpheus**
+    Stealthy in-memory LSASS dumper: compresses memory dumps and exfiltrates them over obfuscated NTP-style UDP packets secured with RC4 and error-correction.
+
+2️⃣9️⃣ **SecureUxTheme**
+    Patch and loader for disabling signature checks in UxTheme.dll, allowing the installation of unsigned Windows themes.
+
+3️⃣0️⃣ **TripleCross**
+    Code injection framework leveraging COM objects to execute payloads in protected processes without direct API calls.
+
+3️⃣1️⃣ **UEFISecureBoot**
+    Scripts and PoCs for bypassing or disabling UEFI Secure Boot by chain-loading unsigned bootloaders and modifying firmware variables.
+
+3️⃣2️⃣ **Vulnerable**
+    Collection of intentionally vulnerable applications, drivers, and firmware images for practicing and demonstrating bypass techniques.
+
+3️⃣3️⃣ **elf-infector**
+    Linux ELF binary infector that injects custom shellcode into existing executables by modifying headers and segments for stealthy execution.
+
+3️⃣4️⃣ **gnu-efi**
+    Build scripts and headers for creating UEFI applications using GNU-EFI, simplifying Secure Boot testing.
+
+3️⃣5️⃣ **injectAmsiBypass**
+    Beacon Object File and standalone module that dynamically patches AMSI in memory to bypass script-scanning defenses.
+
+3️⃣6️⃣ **kernel-callback**
+    Kernel-mode injection primitive using Routine Callback, executing payloads in kernel context while bypassing user-mode hooks.
+
+3️⃣7️⃣ **kernel-hardening-checker**
+    Windows PatchGuard auditor that inspects driver-signature settings and reports potential bypass attack vectors.
+
+3️⃣8️⃣ **lib**
+    Shared libraries and utilities for process management, injection primitives, and obfuscation methods used across multiple tools.
+
+3️⃣9️⃣ **mcuboot**
+    Reference bootloader for microcontrollers with firmware-signature verification and chain-of-trust support for embedded systems.
+
+4️⃣0️⃣ **phnt**
+    Header only collection of Windows NT API definitions and internal structures for low-level system programming.
+
+4️⃣1️⃣ **redlotus**
+    Advanced in-memory loader with reflective loading and encrypted payload delivery to evade analysis.
+
+4️⃣2️⃣ **rootkit**
+    Kernel mode rootkit framework for hiding processes, inline hooking, and bypassing Event Tracing for Windows (ETW) on modern systems.
+
+4️⃣3️⃣ **scripts**
+    Helper scripts for building, deploying, and automating tools: compilation helpers and test C2-harnesses.
+
+4️⃣4️⃣ **shim**
+    Custom shim-DLL and loader mechanism to intercept application launches, patch imports, and bypass AppLocker/SmartScreen.
+
+
 ## 🚫 Disclaimer
 
 This repository is provided for **educational purposes only** and intended for **authorized security research**.
