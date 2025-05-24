@@ -2,11 +2,8 @@
 	<i><u>EDR & AV Bypass Arsenal</i></u>
 </p>
 <p align="center">
-  <a href="bitcoin:1YourBitcoinAddressHere">
     <img 
       src="https://raw.githubusercontent.com/Yuragy/Bypass-Protection0x00/main/donate-btc.png" 
-      alt="Donate BTC" 
-      width="200" 
     />
   </a>
 </p>
