@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <img 
-      src="https://raw.githubusercontent.com/Yuragy/Bypass-Protection0x00/main/donate-btc.png" 
+      src="https://github.com/Yuragy/Bypass-Protection0x00/blob/main/reso/GpnwKAzXgAAu8OC.jpeg" 
     />
   </a>
 </p>
