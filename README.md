@@ -1,4 +1,3 @@
-# EDR & AV Bypass Arsenal
 <p align="center">
 	<i><u># EDR & AV Bypass Arsenal</i></u>
 </p>
