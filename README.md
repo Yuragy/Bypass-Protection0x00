@@ -2,7 +2,7 @@
 	<i><u>EDR & AV Bypass Arsenal</i></u>
 </p>
 <p align="center">
-  <img src="https://github.com/Yuragy/Bypass-Protection0x00/blob/main/reso/GpnwKAzXgAAu8OC.jpeg">
+  <img src="https://github.com/Yuragy/Bypass-Protection0x00/blob/main/reso/Picture1.png">
 </p> 
 
 **Comprehensive collection of tools, patches, and techniques for evading modern EDR, AV, and other defenses.**
