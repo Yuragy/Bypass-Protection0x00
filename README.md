@@ -200,6 +200,10 @@ This project is intended for security researchers and students.
 4️⃣4️⃣ **shim**
 
     Custom shim-DLL and loader mechanism to intercept application launches, patch imports, and bypass AppLocker/SmartScreen.
+    
+4️⃣5️⃣ **Nimbus**
+    
+    Contains a C# reflective-loader for .NET assemblies (EXE/DLL) that loads and immediately executes .NET applications in memory without creating temporary files on disk.
 
 
 ## 🚫 Disclaimer
