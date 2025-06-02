@@ -218,3 +218,7 @@ Use of these materials in unauthorized or illegal activities is **strictly prohi
 
     Exploit RCE vulnerability in WebKit/Safari running on certain versions of iOS and macOS.
 
+4️⃣8️⃣ **ReverseSocks5**
+
+    Tool for organizing a reverse SOCKS5 proxy.
+
