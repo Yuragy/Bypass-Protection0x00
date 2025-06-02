@@ -9,6 +9,11 @@
 All the tools in this repository are a collection that continues to grow, the author's contacts are listed on the inside of each tool if possible. 
 This project is intended for security researchers and students. 
 
+## 🚫 Disclaimer
+
+This repository is provided for **educational purposes only** and intended for **authorized security research**.
+Use of these materials in unauthorized or illegal activities is **strictly prohibited**.
+
 ## Functional Specifics ✅
 
 - Obfuscation & Polymorphism  
@@ -208,8 +213,8 @@ This project is intended for security researchers and students.
 4️⃣6️⃣ **Shellcode-Hide**
 
     Set of tools for preparing and covertly executing shellcode on Windows, including loaders, encoders and encryptors
+    
+4️⃣7️⃣ **Safari 1day RCE Exploit**
 
-## 🚫 Disclaimer
+    Exploit RCE vulnerability in WebKit/Safari running on certain versions of iOS and macOS.
 
-This repository is provided for **educational purposes only** and intended for **authorized security research**.
-Use of these materials in unauthorized or illegal activities is **strictly prohibited**.
