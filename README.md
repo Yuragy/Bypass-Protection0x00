@@ -204,7 +204,10 @@ This project is intended for security researchers and students.
 4️⃣5️⃣ **Nimbus**
     
     Contains a C# reflective-loader for .NET assemblies (EXE/DLL) that loads and immediately executes .NET applications in memory without creating temporary files on disk.
+    
+4️⃣6️⃣ **Shellcode-Hide**
 
+    Set of tools for preparing and covertly executing shellcode on Windows, including loaders, encoders and encryptors
 
 ## 🚫 Disclaimer
 
